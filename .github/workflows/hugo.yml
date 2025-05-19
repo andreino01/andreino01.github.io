@@ -51,7 +51,7 @@ jobs:
           node-version: '18' # O una versione LTS recente che il tema supporta
       - name: Install Node.js dependencies
         # Se il package.json è nella root del tema (es. themes/ananke)
-        working-directory: themes/ananke # << MODIFICA 'ananke' CON IL NOME DELLA CARTELLA DEL TUO TEMA
+        working-directory: themes/Ananke # << MODIFICA 'ananke' CON IL NOME DELLA CARTELLA DEL TUO TEMA
         run: "[[ -f package-json.lock || -f npm-shrinkwrap.json ]] && npm ci --legacy-peer-deps || npm i --legacy-peer-deps"
         # Nota: ho modificato un po' il comando run:
         # 1. Usare package-json.lock (più comune di package-lock.json in alcuni contesti)
