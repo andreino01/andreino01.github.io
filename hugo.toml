@@ -1,18 +1,60 @@
-baseURL = 'https://andreino01.github.io/' # Cambieremo dopo
-languageCode = 'it-it'
-title = 'La Ghironda'
-theme = 'Ananke'
-[[menu.main]]
-  identifier = "eventi"
-  name = "Prossimi Eventi"
-  url = "/eventi/"
-  weight = 20 # Modifica il peso per ordinare la voce nel menu
-[[menu.main]]
-  identifier = "contatti"
-  name = "Contattaci"
-  url = "/contatti/"
-  weight = 10 # Modifica il peso per ordinare la voce nel menu
+# hugo.toml (estratto rilevante per Paige)
+
+# ... altre impostazioni di Hugo ...
+theme = "paige" # Assicurati sia il nome corretto della cartella del tema Paige
+
+[params.paige.site]
+  date_format = ":date_long"
+  external_link_new_tab = true
+  description = "Sito ufficiale dell'Associazione di Volontariato La Ghironda. Eventi, attività e come sostenerci."
+  color = "#003366" # Il tuo blu primario
+  color_scheme = "auto" # o "light" / "dark"
+  menu_style = "links" # Prova anche "pills", "tabs", "underline"
+  # edit_url = "https://github.com/andreino01/andreino01.github.io/edit/main/content/%s" # Se vuoi il link "Modifica pagina"
+  # history_url = "https://github.com/andreino01/andreino01.github.io/commits/main/content/%s" # Link alla cronologia
+
+[params.paige.pages]
+  # disable_date = true # Esempio: nascondi la data dalle pagine normali
+  # disable_toc = false # Mostra l'indice se utile
+
+# Non dimenticare questa sezione per gli iframe!
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true # Permette l'HTML grezzo, inclusi gli iframe
+      unsafe = true
+
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 10 # Prima voce
+
+[[menu.main]]
+  identifier = "chi-siamo"
+  name = "Chi Siamo"
+  url = "/chi-siamo/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "le-nostre-attivita" # Nuovo!
+  name = "Le Nostre Attività"
+  url = "/le-nostre-attivita/"
+  weight = 25 # Tra Chi Siamo e Eventi
+
+[[menu.main]]
+  identifier = "eventi"
+  name = "Eventi"
+  url = "/eventi/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "sostienici"
+  name = "Sostienici" # O "Magliette"
+  url = "/sostienici/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "contatti"
+  name = "Contatti"
+  url = "/contatti/"
+  weight = 50 # Ultima voce

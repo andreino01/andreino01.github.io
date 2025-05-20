@@ -1,40 +1,35 @@
 ---
-title: "Sostienici con una Maglietta!"
-date: 2023-10-27T11:00:00+02:00
+title: "Sostienici"
+date: 2023-10-28T12:00:00+02:00
 draft: false
-# feature_image: "/images/magliette_banner.jpg"
-# description: "Acquista la nostra maglietta ufficiale e sostieni le attività dell'associazione."
+description: "Aiuta La Ghironda a continuare le sue attività: acquista una maglietta o fai una donazione."
 ---
 
-## La Nostra Maglietta Ufficiale
+Il tuo supporto è fondamentale per permetterci di portare avanti i nostri progetti e aiutare la comunità. Ci sono diversi modi in cui puoi contribuire:
 
-Mostra il tuo supporto per La Ghironda indossando la nostra maglietta ufficiale!
-Il ricavato della vendita delle magliette viene interamente utilizzato per finanziare i nostri progetti e le nostre attività di volontariato.
+## Acquista la Nostra Maglietta
 
-Ecco come si presenta:
+![Maglietta La Ghironda](/images/maglietta_laghironda.jpg) <!-- Immagine in static/images/ -->
 
-![Fronte Maglietta La Ghironda](/images/magliette/maglietta_logo_fronte.jpg "Fronte della nostra maglietta")
-![Retro Maglietta La Ghironda](/images/magliette/maglietta_logo_retro.jpg "Retro della nostra maglietta")
+Sostieni La Ghironda e indossa i nostri colori! La nostra maglietta ufficiale è disponibile.
+* **Prezzo/Donazione consigliata:** 20€
+* **Materiale:** Cotone 100%
+* **Taglie:** S, M, L, XL
 
-**Caratteristiche:**
-* Materiale: Cotone 100%
-* Colore: Blu Navy (o il colore che è)
-* Taglie disponibili: S, M, L, XL
+Per averla, fai una donazione tramite il pulsante PayPal qui sotto.
+**Nelle note del pagamento, per favore indica la TAGLIA e l'INDIRIZZO DI SPEDIZIONE.**
 
----
-
-### Come averla:
-
-Fai una donazione di **20€** (o l'importo che hai scelto) tramite PayPal cliccando sul pulsante qui sotto.
-
-**Importante:**
-* **Nelle note del pagamento PayPal, per favore specifica la TAGLIA desiderata e l'INDIRIZZO COMPLETO per la spedizione.**
-* Oppure, dopo aver effettuato la donazione, inviaci una mail a [tua_email_associazione@example.com](mailto:tua_email_associazione@example.com) con i dettagli della taglia e dell'indirizzo.
-* Per la consegna a mano in zona [TUA_ZONA], contattaci prima o specificalo nelle note.
-
-<!-- Incolla qui il codice del pulsante PayPal -->
-[CODICE HTML DEL TUO PULSANTE PAYPAL VA QUI]
+<!-- INCOLLA QUI IL CODICE DEL TUO PULSANTE PAYPAL PER LA MAGLIETTA -->
+[CODICE PULSANTE PAYPAL]
 
 ---
 
-Grazie di cuore per il tuo sostegno! Ogni contributo fa la differenza.
+## Fai una Donazione Libera
+
+Ogni contributo, grande o piccolo, ci aiuta a fare la differenza. Se desideri sostenere la nostra associazione con una donazione libera, puoi utilizzare questo pulsante:
+
+<!-- INCOLLA QUI IL CODICE DEL TUO PULSANTE PAYPAL PER DONAZIONI LIBERE -->
+[CODICE PULSANTE PAYPAL DONAZIONE LIBERA]
+
+---
+Per altre forme di sostegno o per proporre collaborazioni, [contattaci](/contatti/)! Grazie di cuore!
