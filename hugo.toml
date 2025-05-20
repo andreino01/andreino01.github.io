@@ -1,4 +1,18 @@
-baseURL = 'http://example.org/' # Cambieremo dopo
+baseURL = 'https://andreino01.github.io/' # Cambieremo dopo
 languageCode = 'it-it'
 title = 'La Ghironda'
 theme = 'Ananke'
+[[menu.main]]
+  identifier = "eventi"
+  name = "Prossimi Eventi"
+  url = "/eventi/"
+  weight = 20 # Modifica il peso per ordinare la voce nel menu
+[[menu.main]]
+  identifier = "contatti"
+  name = "Contattaci"
+  url = "/contatti/"
+  weight = 10 # Modifica il peso per ordinare la voce nel menu
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true # Permette l'HTML grezzo, inclusi gli iframe
