@@ -31,10 +31,10 @@ aside.sidebar {
 }
 
 .sidebar-sticky-content {
-    padding: 20px;
+    padding: 10px;
     /* Aggiungi padding-top qui se vuoi spazio sopra il logo,
        ma il pulsante X sarà sopra questo */
-    margin-top: 40px; /* Spazio per il pulsante X che è position:absolute */
+    margin-top: 0px; /* Spazio per il pulsante X che è position:absolute */
 }
 
 aside.sidebar.closed {
@@ -47,10 +47,14 @@ aside.sidebar .sidebar-about {
     margin-bottom: 20px;
 }
 aside.sidebar .author-image img {
-    width: 120px; height: 120px;
+    width: 150px; height: 150px;
     border-radius: 50%;
-    margin-bottom: 10px;
 }
+
+aside.sidebar .author-image img.img-circle {
+    border: none !important; /* Rimuove qualsiasi bordo */
+}
+
 /* Stile specifico per l'h1 del titolo del sito nella sidebar */
 aside.sidebar .sidebar-about h1.site-title-sidebar { /* Usiamo la classe aggiunta */
     color: var(--colore-oro-ghironda) !important;
