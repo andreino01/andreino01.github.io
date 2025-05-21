@@ -1,5 +1,6 @@
 baseURL = "https://andreino01.github.io/" # Il tuo URL GitHub Pages
 title = "La Ghironda"                     # Titolo del tuo sito
+description = "."
 languageCode = "it-it"                   # Imposta la lingua italiana
 theme = "soho"                           # Nome della cartella del tema Soho
 enableInlineShortcodes = true            # Utile per alcuni shortcodes
@@ -10,7 +11,7 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 # PARAMETRI SPECIFICI DEL TEMA SOHO E GLOBALI DEL SITO
 [params]
   author = "La Ghironda"
-  description = ""
+  description = "."
   # Immagine del profilo/logo per Soho
   # Assicurati che l'immagine esista in static/images/logo_ghironda.png (o il percorso che scegli)
   profilePicture = "images/logo_laghironda.png"
