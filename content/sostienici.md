@@ -1,6 +1,6 @@
 ---
 title: "Sostienici"
-date: 2023-10-28T12:00:00+02:00
+date: 2023-10-28T12:00:00+02:00 # La data è utile per l'ordinamento o se Soho la mostra
 draft: false
 description: "Aiuta La Ghironda a continuare le sue attività: acquista una maglietta o fai una donazione."
 ---
@@ -9,7 +9,7 @@ Il tuo supporto è fondamentale per permetterci di portare avanti i nostri proge
 
 ## Acquista la Nostra Maglietta
 
-![Maglietta La Ghironda](/images/maglietta_laghironda.jpg) <!-- Immagine in static/images/ -->
+![Maglietta La Ghironda](/images/maglietta_laghironda.jpg) <!-- Assicurati che l'immagine sia in static/images/ -->
 
 Sostieni La Ghironda e indossa i nostri colori! La nostra maglietta ufficiale è disponibile.
 * **Prezzo/Donazione consigliata:** 20€

@@ -19,10 +19,10 @@ Rimani aggiornato sulle nostre novità anche attraverso i nostri canali social:
 *   **Instagram:** [Link al vostro profilo Instagram](https://instagram.com/vostro_profilo)
 *   **(Altri Social):** [Link]
 
-*(Paige potrebbe avere delle opzioni in `hugo.toml` per configurare i link ai social che poi appaiono automaticamente nel footer o in un'apposita sezione. Controlla la documentazione del tema Paige per "social links" o simili.)*
+*(Controlla la documentazione del tema Soho per come configurare al meglio i link social, probabilmente tramite la sezione `[[params.socialIcons]]` in hugo.toml).*
 
 ## Modulo di Contatto (Alternativa/Aggiunta)
-*(Per un modulo di contatto funzionante su un sito statico, di solito hai bisogno di un servizio esterno come Formspree, Netlify Forms (se ospiti su Netlify), Getform, ecc. Questo è più avanzato da configurare.)*
+*(Per un modulo di contatto funzionante su un sito statico, di solito hai bisogno di un servizio esterno come Formspree, Netlify Forms, Getform, ecc.)*
 
 <!-- Esempio placeholder se volessi integrare un form in futuro:
 <form action="[IL_TUO_ENDPOINT_FORMSPREE]" method="POST">

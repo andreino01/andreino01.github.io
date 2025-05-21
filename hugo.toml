@@ -1,7 +1,7 @@
 # hugo.toml (estratto rilevante per Paige)
 
 # ... altre impostazioni di Hugo ...
-theme = "paige" # Assicurati sia il nome corretto della cartella del tema Paige
+theme = "soho" # Assicurati sia il nome corretto della cartella del tema Paige
 
 [params.paige.site]
   date_format = ":date_long"

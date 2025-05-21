@@ -1,14 +1,13 @@
 ---
 title: "Benvenuti a La Ghironda!"
-# Paige potrebbe avere parametri specifici per la homepage, tipo:
-# layout: "home" # Controlla la documentazione di Paige o l'exampleSite
-# paige:
-#   full_width: true # Esempio se vuoi la homepage a tutta larghezza
+# Non sono necessari parametri specifici di layout di temi precedenti per Soho qui.
+# Soho userà il suo layout di default per la homepage.
+# Se vuoi un'immagine qui, inseriscila nel corpo del Markdown.
 ---
 
 ## La Nostra Missione
 
-La Ghironda è un'associazione di volontariato dedicata a [descrivi brevemente la tua missione principale]. Ci impegniamo a [menziona 2-3 aree chiave di intervento o valori].
+La Ghironda è un'associazione di volontariato dedicata a **[descrivi brevemente la tua missione principale]**. Ci impegniamo a **[menziona 2-3 aree chiave di intervento o valori]**.
 
 ---
 
@@ -18,5 +17,5 @@ Scopri le nostre [attività](/le-nostre-attivita/), partecipa ai prossimi [event
 
 ---
 
-<!-- Paige potrebbe mostrare qui automaticamente le sezioni o i post recenti. -->
-<!-- Altrimenti, puoi aggiungere manualmente dei link o delle anteprime qui. -->
+<!-- Potresti aggiungere qui una sezione con un'immagine rappresentativa -->
+<!-- Esempio: ![Foto di gruppo La Ghironda](/images/gruppo_ghironda.jpg) -->
