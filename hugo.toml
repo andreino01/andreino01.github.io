@@ -20,11 +20,11 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
   # licenseURL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
   # Colore del tema personalizzato (opzionale)
-  #themeColor = "#003366" # Il tuo blu, se vuoi provare a sovrascrivere quello di Soho
+  themeColor = "#003366" # Il tuo blu, se vuoi provare a sovrascrivere quello di Soho
 
   # File CSS e JS personalizzati (creali in static/css/ e static/js/ se li usi)
   customCss = ["css/custom_laghironda.css"]
-  # customJs = ["js/custom_laghironda.js"]
+  customJs = ["js/custom_laghironda.js"]
 
   # Icone Social (verifica come Soho le gestisce e se include Font Awesome)
   [[params.socialIcons]]

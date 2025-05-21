@@ -1,0 +1,155 @@
+/* static/css/custom_ghironda.css */
+:root {
+    --colore-oro-ghironda: #DAA520;
+    --colore-sidebar-bg: #002244;
+    --colore-pagina-bg: #FFFFFF;
+    --colore-testo-pagina: #333333;
+}
+
+body {
+    background-color: var(--colore-pagina-bg);
+    color: var(--colore-testo-pagina);
+    /* Aggiunto per evitare che il contenuto principale si sposti bruscamente
+       se si decidesse di usare margin-left per spingerlo */
+    transition: margin-left 0.4s ease-in-out;
+}
+
+/* --- Sidebar Styles --- */
+aside.sidebar {
+    position: fixed; /* Fondamentale per il posizionamento del pulsante di chiusura interno */
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100%;
+    background-color: var(--colore-sidebar-bg);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1000;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Rimosso padding-top, il pulsante di chiusura sarà posizionato assolutamente */
+}
+
+.sidebar-sticky-content {
+    padding: 20px;
+    /* Aggiungi padding-top qui se vuoi spazio sopra il logo,
+       ma il pulsante X sarà sopra questo */
+    margin-top: 40px; /* Spazio per il pulsante X che è position:absolute */
+}
+
+aside.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* Logo, Titolo, Descrizione nella Sidebar */
+aside.sidebar .sidebar-about {
+    text-align: center;
+    margin-bottom: 20px;
+}
+aside.sidebar .author-image img {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+/* Stile specifico per l'h1 del titolo del sito nella sidebar */
+aside.sidebar .sidebar-about h1.site-title-sidebar { /* Usiamo la classe aggiunta */
+    color: var(--colore-oro-ghironda) !important;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    /* Rimuoviamo qualsiasi effetto di link/hover qui se non è un link */
+    text-decoration: none; /* Se per caso lo ereditasse */
+    cursor: default; /* Cursore normale */
+}
+/* Assicurarsi che non prenda l'hover del menu se è un h1 semplice */
+aside.sidebar .sidebar-about h1.site-title-sidebar:hover {
+    background-color: transparent !important; /* Nessun cambio di sfondo */
+    color: var(--colore-oro-ghironda) !important; /* Rimane oro */
+}
+
+aside.sidebar .sidebar-about .p_description {
+    color: #ccc; font-size: 0.9em; margin-bottom: 20px;
+}
+
+/* Menu nella Sidebar */
+aside.sidebar .sidebar-nav-container { margin-top: 20px; }
+aside.sidebar .sidebar-nav { list-style: none; padding: 0; margin: 0; }
+aside.sidebar .sidebar-nav li a {
+    color: var(--colore-oro-ghironda) !important;
+    display: block; padding: 10px 15px; text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+aside.sidebar .sidebar-nav li a:hover,
+aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pagina corrente */
+    color: var(--colore-sidebar-bg) !important;
+    background-color: var(--colore-oro-ghironda) !important;
+}
+
+/* Icone Social */
+aside.sidebar .social-icons { text-align: center; margin-top: 30px; padding-bottom: 20px; }
+aside.sidebar .social-icons a { color: var(--colore-oro-ghironda) !important; margin: 0 8px; font-size: 1.2em; }
+aside.sidebar .social-icons a:hover { color: #fff2b3 !important; }
+
+/* --- Stili per il Pulsante Toggle Master (ora ci sono due "istanze" con classi diverse) --- */
+.master-toggle { /* Stili comuni a entrambi i pulsanti */
+    display: block;
+    position: fixed; /* Sempre fisso rispetto al viewport */
+    width: 45px; height: 45px;
+    padding: 10px;
+    cursor: pointer; border: none; border-radius: 5px;
+    z-index: 1005;
+    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+.master-toggle span {
+    display: block; width: 100%; max-width: 25px; height: 3px;
+    margin: 4px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Pulsante DENTRO la sidebar (la "X") */
+.sidebar-toggle-button {
+    /* Positioned absolutely RELATIVE to aside.sidebar (che è position:fixed) */
+    position: absolute; /* CAMBIATO da fixed ad absolute */
+    top: 15px;          /* Distanza dall'alto della sidebar */
+    right: 15px;         /* Distanza da destra della sidebar */
+    background-color: transparent;
+    /* Non serve display:none/block qui, lo fa JS con la classe .closed sulla sidebar genitore,
+       ma se la sidebar è visibile, questo pulsante deve essere visibile. */
+}
+.sidebar-toggle-button span {
+    background-color: var(--colore-oro-ghironda); /* Trattini/X d'oro */
+}
+/* Animazione in "X" per .sidebar-toggle-button (quando è .active) */
+.sidebar-toggle-button.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.sidebar-toggle-button.active span:nth-child(2) { opacity: 0; }
+.sidebar-toggle-button.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Pulsante sulla PAGINA (l'hamburger) */
+.page-hamburger-button {
+    top: 20px;  /* Posizione fissa sulla pagina */
+    left: 20px;
+    background-color: var(--colore-sidebar-bg); /* Sfondo blu */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: none; /* Inizialmente nascosto, JS lo mostrerà quando la sidebar è chiusa */
+}
+.page-hamburger-button span {
+    background-color: var(--colore-oro-ghironda); /* Trattini oro */
+}
+/* L'animazione X non serve per questo, perché quando è 'active' la sidebar è aperta e questo è nascosto */
+
+
+/* Overlay */
+.page-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); z-index: 999; cursor: pointer;
+}
+.page-overlay.active { display: block; }
+
+/* Sposta il contenuto principale quando la sidebar è aperta (opzionale) */
+main.content.container { /* Se .content.container è il tuo wrapper principale per il contenuto */
+    transition: margin-left 0.4s ease-in-out;
+    /* Inizialmente nessun margine, si adatta alla chiusura della sidebar */
+}
+body.sidebar-is-open main.content.container { /* Aggiungi .sidebar-is-open al body con JS */
+    margin-left: 320px; /* Spingi il contenuto della larghezza della sidebar */
+}

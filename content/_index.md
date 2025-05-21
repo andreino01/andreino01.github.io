@@ -10,4 +10,4 @@ La Ghironda è un'associazione di volontariato dedicata a promuovere la cultura 
 
 ### Unisciti a Noi!
 
-Scopri le nostre [attività](/le-nostre-attivita/), partecipa ai prossimi [eventi](/eventi/) o [sostienici](/sostienici/) per aiutarci a fare la differenza.  ciaoooo
+Scopri le nostre [attività](/le-nostre-attivita/), partecipa ai prossimi [eventi](/eventi/) o [sostienici](/sostienici/) per aiutarci a fare la differenza.

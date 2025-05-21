@@ -1,0 +1,68 @@
+<aside class="sidebar"> <!-- La classe 'closed' verrà aggiunta/rimossa da JS -->
+    <div class="sidebar-sticky-content">
+        <!-- HAMBURGER/CLOSE BUTTON (ora è l'unico bottone di controllo VISIBILE quando la sidebar è APERTA) -->
+        <!-- Questo pulsante è posizionato con CSS rispetto a 'aside.sidebar' se 'aside.sidebar' ha 'position: relative' o 'fixed' -->
+        <button class="master-toggle sidebar-toggle-button active" aria-label="Close Menu" aria-expanded="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="sidebar-about">
+            {{ with .Site.Params.profilePicture }}
+            <div class="author-image">
+                <!-- Il logo di solito punta alla homepage -->
+                <a href="{{ $.Site.BaseURL }}">
+                    <img src="{{ . | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
+                </a>
+            </div>
+            {{ end }}
+
+            {{ with .Site.Title }}
+            <!-- Rimosso il link dall'h1 per evitare l'effetto hover del menu -->
+            <h1 class="site-title-sidebar">{{ . }}</h1>
+            {{ end }}
+
+            {{ with .Site.Params.description }}
+            <p class="p_description">{{ . }}</p>
+            {{ end }}
+        </div>
+
+        <nav class="sidebar-nav-container">
+            <ul class="sidebar-nav">
+                <!-- GESTIONE LINK "HOME" -->
+                {{/* Controlla se l'utente ha definito una voce "Home" nel menu principale */}}
+                {{ $home_in_menu := false }}
+                {{ range .Site.Menus.main }}
+                    {{ if eq .Identifier "home" }}
+                        {{ $home_in_menu = true }}
+                    {{ end }}
+                {{ end }}
+
+                {{/* Se "Home" non è nel menu definito dall'utente, aggiungilo qui come primo elemento */}}
+                {{ if not $home_in_menu }}
+                <li>
+                    <a href="{{ .Site.BaseURL }}">Home</a>
+                </li>
+                {{ end }}
+
+                <!-- Stampa le voci di menu definite in hugo.toml -->
+                {{ range .Site.Menus.main -}}
+                <li>
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{- end }}
+            </ul>
+        </nav>
+
+        {{ with .Site.Params.socialIcons }}
+        <section class="social-icons">
+            {{ range $item := . }}
+            <a href="{{ $item.url }}" rel="me" title="{{ $item.title }}" target="_blank">
+                <i class="fab {{ $item.icon }}" aria-hidden="true"></i>
+            </a>
+            {{ end }}
+        </section>
+        {{ end }}
+    </div>
+</aside>
