@@ -31,7 +31,7 @@ aside.sidebar {
 }
 
 .sidebar-sticky-content {
-    padding: 10px;
+    padding: 0px;
     /* Aggiungi padding-top qui se vuoi spazio sopra il logo,
        ma il pulsante X sarà sopra questo */
     margin-top: 0px; /* Spazio per il pulsante X che è position:absolute */
@@ -76,17 +76,18 @@ aside.sidebar .sidebar-about .p_description {
 }
 
 /* Menu nella Sidebar */
-aside.sidebar .sidebar-nav-container { margin-top: 20px; }
-aside.sidebar .sidebar-nav { list-style: none; padding: 0; margin: 0; }
 aside.sidebar .sidebar-nav li a {
     color: var(--colore-oro-ghironda) !important;
-    display: block; padding: 10px 15px; text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    display: block; 
+    padding: 10px 15px; 
+    text-decoration: none;
+    /* La transizione ora è solo per il colore del testo */
+    transition: color 0.2s ease; 
 }
 aside.sidebar .sidebar-nav li a:hover,
 aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pagina corrente */
-    color: var(--colore-sidebar-bg) !important;
-    background-color: var(--colore-oro-ghironda) !important;
+    color: var(--colore-oro-ghironda-chiaro) !important; /* Testo diventa ORO PIÙ CHIARO */
+    background-color: transparent !important; /* NESSUN CAMBIO DI SFONDO (o il colore di sfondo della sidebar se preferisci, ma trasparente è meglio per "illuminare" solo il testo) */
 }
 
 /* Icone Social */
@@ -132,12 +133,13 @@ aside.sidebar .social-icons a:hover { color: #fff2b3 !important; }
 .page-hamburger-button {
     top: 20px;  /* Posizione fissa sulla pagina */
     left: 20px;
-    background-color: var(--colore-sidebar-bg); /* Sfondo blu */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: var(--colore-pagina-bg);
+    /*border: 1px solid var(--colore-sidebar-bg);*/ /* Bordo sottile blu scuro */
+    /*box-shadow: 0 2px 5px rgba(0,0,0,0.2);*/
     display: none; /* Inizialmente nascosto, JS lo mostrerà quando la sidebar è chiusa */
 }
 .page-hamburger-button span {
-    background-color: var(--colore-oro-ghironda); /* Trattini oro */
+    background-color: var(--colore-sidebar-bg); /* Trattini oro */
 }
 /* L'animazione X non serve per questo, perché quando è 'active' la sidebar è aperta e questo è nascosto */
 

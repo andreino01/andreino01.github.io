@@ -16,7 +16,7 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
   # Assicurati che l'immagine esista in static/images/logo_ghironda.png (o il percorso che scegli)
   profilePicture = "images/logo_laghironda.png"
 
-  copyright = "© Associazione La Ghironda" # Puoi aggiungere l'anno o personalizzare
+  copyright = "ODV La Ghironda" # Puoi aggiungere l'anno o personalizzare
   # license = "CC BY-NC-SA 4.0" # Esempio se vuoi una licenza
   # licenseURL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
@@ -43,20 +43,20 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 #  [[menu.main]]
 #    name = "Home"
 #    identifier = "home"
- #   weight = 10
+ #   weight = 0
  #    url = "/home/"
 
   [[menu.main]]
     identifier = "chi-siamo"
     name = "Chi Siamo"
     url = "/chi-siamo/"
-    weight = 20
+    weight = 10
 
   [[menu.main]]
     identifier = "le-nostre-attivita"
     name = "Le Nostre Attività"
     url = "/le-nostre-attivita/"
-    weight = 25
+    weight = 20
 
   [[menu.main]]
     identifier = "eventi"
