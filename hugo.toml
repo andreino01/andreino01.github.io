@@ -9,23 +9,22 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 
 # PARAMETRI SPECIFICI DEL TEMA SOHO E GLOBALI DEL SITO
 [params]
-  author = "Associazione La Ghironda"
-  description = "Sito ufficiale dell'Associazione di Volontariato La Ghironda. Eventi, attività e come sostenerci."
-
+  author = "La Ghironda"
+  
   # Immagine del profilo/logo per Soho
   # Assicurati che l'immagine esista in static/images/logo_ghironda.png (o il percorso che scegli)
-  profilePicture = "images/logo_laghironda.png" # MODIFICA SE IL NOME/PERCORSO DEL LOGO È DIVERSO
+  profilePicture = "images/logo_laghironda.png"
 
   copyright = "© Associazione La Ghironda" # Puoi aggiungere l'anno o personalizzare
   # license = "CC BY-NC-SA 4.0" # Esempio se vuoi una licenza
   # licenseURL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
   # Colore del tema personalizzato (opzionale)
-  # themeColor = "#003366" # Il tuo blu, se vuoi provare a sovrascrivere quello di Soho
+  #themeColor = "#003366" # Il tuo blu, se vuoi provare a sovrascrivere quello di Soho
 
   # File CSS e JS personalizzati (creali in static/css/ e static/js/ se li usi)
-  # customCss = ["css/custom_ghironda.css"]
-  # customJs = ["js/custom_ghironda.js"]
+  customCss = ["css/custom_laghironda.css"]
+  # customJs = ["js/custom_laghironda.js"]
 
   # Icone Social (verifica come Soho le gestisce e se include Font Awesome)
   [[params.socialIcons]]
@@ -40,11 +39,11 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 
 # MENU PRINCIPALE
 [menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 10
+#  [[menu.main]]
+#    name = "Home"
+#    identifier = "home"
+ #   weight = 10
+ #    url = "/home/"
 
   [[menu.main]]
     identifier = "chi-siamo"
