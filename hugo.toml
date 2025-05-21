@@ -1,60 +1,95 @@
-# hugo.toml (estratto rilevante per Paige)
+baseURL = "https://andreino01.github.io/" # Il tuo URL GitHub Pages
+title = "La Ghironda"                     # Titolo del tuo sito
+languageCode = "it-it"                   # Imposta la lingua italiana
+theme = "soho"                           # Nome della cartella del tema Soho
+enableInlineShortcodes = true            # Utile per alcuni shortcodes
+enableEmoji = true                       # Se vuoi usare emoji
 
-# ... altre impostazioni di Hugo ...
-theme = "soho" # Assicurati sia il nome corretto della cartella del tema Paige
+summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 
-[params.paige.site]
-  date_format = ":date_long"
-  external_link_new_tab = true
+# PARAMETRI SPECIFICI DEL TEMA SOHO E GLOBALI DEL SITO
+[params]
+  author = "Associazione La Ghironda"
   description = "Sito ufficiale dell'Associazione di Volontariato La Ghironda. Eventi, attività e come sostenerci."
-  color = "#003366" # Il tuo blu primario
-  color_scheme = "auto" # o "light" / "dark"
-  menu_style = "links" # Prova anche "pills", "tabs", "underline"
-  # edit_url = "https://github.com/andreino01/andreino01.github.io/edit/main/content/%s" # Se vuoi il link "Modifica pagina"
-  # history_url = "https://github.com/andreino01/andreino01.github.io/commits/main/content/%s" # Link alla cronologia
 
-[params.paige.pages]
-  # disable_date = true # Esempio: nascondi la data dalle pagine normali
-  # disable_toc = false # Mostra l'indice se utile
+  # Immagine del profilo/logo per Soho
+  # Assicurati che l'immagine esista in static/images/logo_ghironda.png (o il percorso che scegli)
+  profilePicture = "images/logo_laghironda.png" # MODIFICA SE IL NOME/PERCORSO DEL LOGO È DIVERSO
 
-# Non dimenticare questa sezione per gli iframe!
+  copyright = "© Associazione La Ghironda" # Puoi aggiungere l'anno o personalizzare
+  # license = "CC BY-NC-SA 4.0" # Esempio se vuoi una licenza
+  # licenseURL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+
+  # Colore del tema personalizzato (opzionale)
+  # themeColor = "#003366" # Il tuo blu, se vuoi provare a sovrascrivere quello di Soho
+
+  # File CSS e JS personalizzati (creali in static/css/ e static/js/ se li usi)
+  # customCss = ["css/custom_ghironda.css"]
+  # customJs = ["js/custom_ghironda.js"]
+
+  # Icone Social (verifica come Soho le gestisce e se include Font Awesome)
+  [[params.socialIcons]]
+    icon = "fab fa-facebook-f" # Richiede Font Awesome
+    title = "Facebook"
+    url = "https://facebook.com/" # SOSTITUISCI
+
+  [[params.socialIcons]]
+    icon = "fab fa-instagram" # Richiede Font Awesome
+    title = "Instagram"
+    url = "https://www.instagram.com/_laghironda" # SOSTITUISCI
+
+# MENU PRINCIPALE
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "chi-siamo"
+    name = "Chi Siamo"
+    url = "/chi-siamo/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "le-nostre-attivita"
+    name = "Le Nostre Attività"
+    url = "/le-nostre-attivita/"
+    weight = 25
+
+  [[menu.main]]
+    identifier = "eventi"
+    name = "Eventi"
+    url = "/eventi/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "sostienici"
+    name = "Sostienici"
+    url = "/sostienici/"
+    weight = 40
+
+  [[menu.main]]
+    identifier = "contatti"
+    name = "Contatti"
+    url = "/contatti/"
+    weight = 50
+
+# TASSOMOMIE (opzionale per ora se non hai un blog)
+[taxonomies]
+  category = "categorie"
+  series = "serie"
+  tag = "tag"
+
+# MARKUP CONFIGURATION (Fondamentale per iframe e codice)
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    lineNos = false
+    noClasses = true # Soho potrebbe gestire gli stili del codice; se no, imposta a false e fornisci CSS
+    style = "monokai" # Stile per l'highlighting del codice
 
-[[menu.main]]
-  identifier = "home"
-  name = "Home"
-  url = "/"
-  weight = 10 # Prima voce
-
-[[menu.main]]
-  identifier = "chi-siamo"
-  name = "Chi Siamo"
-  url = "/chi-siamo/"
-  weight = 20
-
-[[menu.main]]
-  identifier = "le-nostre-attivita" # Nuovo!
-  name = "Le Nostre Attività"
-  url = "/le-nostre-attivita/"
-  weight = 25 # Tra Chi Siamo e Eventi
-
-[[menu.main]]
-  identifier = "eventi"
-  name = "Eventi"
-  url = "/eventi/"
-  weight = 30
-
-[[menu.main]]
-  identifier = "sostienici"
-  name = "Sostienici" # O "Magliette"
-  url = "/sostienici/"
-  weight = 40
-
-[[menu.main]]
-  identifier = "contatti"
-  name = "Contatti"
-  url = "/contatti/"
-  weight = 50 # Ultima voce
+  [markup.goldmark.renderer]
+    unsafe = true # NECESSARIO per l'iframe del Google Calendar
