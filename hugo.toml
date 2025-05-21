@@ -1,6 +1,6 @@
 baseURL = "https://andreino01.github.io/" # Il tuo URL GitHub Pages
 title = "La Ghironda"                     # Titolo del tuo sito
-#description = ""
+description = ""
 languageCode = "it-it"                   # Imposta la lingua italiana
 theme = "soho"                           # Nome della cartella del tema Soho
 enableInlineShortcodes = true            # Utile per alcuni shortcodes
