@@ -11,7 +11,7 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 # PARAMETRI SPECIFICI DEL TEMA SOHO E GLOBALI DEL SITO
 [params]
   author = "La Ghironda"
-  description = "ciao"
+  description = ""
   # Immagine del profilo/logo per Soho
   # Assicurati che l'immagine esista in static/images/logo_ghironda.png (o il percorso che scegli)
   profilePicture = "images/logo_laghironda.png"

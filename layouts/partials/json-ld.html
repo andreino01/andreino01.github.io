@@ -1,0 +1,147 @@
+{{ $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type":"Person",
+      "@id": {{ .Site.BaseURL | printf "%s#author" | jsonify }},
+      "name": {{ .Site.Params.author | jsonify }},
+      "image": {
+        "@type":"ImageObject"
+        {{- with .Site.Params.gravatar -}}
+        ,"url": {{ md5 . | printf "https://www.gravatar.com/avatar/%s?s=400&d=mp" | jsonify }}
+        {{- else -}}
+        {{- with .Site.Params.profilePicture -}}
+        ,"url": {{ . | absURL | jsonify }}
+        {{- end -}}
+        {{- end }}
+      },
+      {{- /* CORREZIONE 1: Gestione description per Person */}}
+      {{- with .Site.Params.description -}}
+      "description": {{ . | jsonify }}
+      {{- else -}}
+      "description": "" {{/* Valore di fallback se non vuoi omettere il campo */}}
+      {{- end -}}
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ .Site.BaseURL | printf "%s#website" | jsonify }},
+      "url": {{ .Site.BaseURL | jsonify }},
+      "name": {{ .Site.Title | jsonify }},
+      {{- /* CORREZIONE 2: Gestione description per WebSite */}}
+      {{- with .Site.Params.description -}}
+      "description": {{ . | jsonify }},
+      {{- else -}}
+      "description": "", {{/* Valore di fallback */}}
+      {{- end }}
+      "publisher": {
+        "@id": {{ .Site.BaseURL | printf "%s#author" | jsonify }}
+      },
+      "inLanguage": {{ .Site.LanguageCode | jsonify }}
+    },
+    {{- with .Site.Params.images -}}
+    {{- range . }}
+    {
+      "@type": "ImageObject",
+      "url": {{ . | absURL | jsonify }},
+      "caption": {{ $.Site.Title | jsonify }}
+    },
+    {{- end }}
+    {{- end }}
+    {
+      "@type": "WebPage",
+      "@id": {{ .Permalink | printf "%s#webpage" | jsonify }},
+      "url": {{ .Permalink | jsonify }},
+      "name": {{ .Title | jsonify }},
+      "isPartOf": {
+        "@id": {{ .Site.BaseURL | printf "%s#website" | jsonify }}
+      },
+      "about": {
+         "@id": {{ .Site.BaseURL | printf "%s#author" | jsonify }}
+      },
+      {{- if not .PublishDate.IsZero -}}
+      "datePublished": {{ .PublishDate.Format $ISO8601 | jsonify }},
+      {{- end }}
+      {{- if not .Lastmod.IsZero -}}
+      "dateModified": {{ .Lastmod.Format $ISO8601 | jsonify }},
+      {{- end }}
+      {{- /* CORREZIONE 3: Gestione description per WebPage */}}
+      {{- $pageDesc := "" }}
+      {{- if .Description -}}
+        {{- $pageDesc = .Description -}}
+      {{- else if .IsPage }}{{/* Solo per pagine regolari, non per home o liste se non hanno .Summary esplicito */}}
+        {{- $pageDesc = .Summary -}}
+      {{- else -}}
+        {{- $pageDesc = .Site.Params.description -}}
+      {{- end -}}
+      "description": {{ $pageDesc | default "" | jsonify }}, {{/* Aggiunto default "" e jsonify */}}
+      "inLanguage": {{ .Site.LanguageCode | jsonify }},
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            {{ .Permalink | jsonify }}
+          ]
+        }
+      ]
+    }{{ if .IsPage }},
+    {
+      "@type": "Article",
+      "isPartOf": {
+        "@id": {{ .Permalink | printf "%s#webpage" | jsonify }}
+      },
+      "mainEntityOfPage": {
+        "@id": {{ .Permalink | printf "%s#webpage" | jsonify }}
+      },
+      "headline": {{ .Title | jsonify }},
+      {{- with .Params.images -}}
+      "image": [
+        {{- range $idx, $url := . -}}{{- if $idx -}},{{- end }}
+        {{ $url | absURL | jsonify -}}
+        {{- end }}
+      ],
+      {{- end }}
+      {{- if not .PublishDate.IsZero -}}
+      "datePublished": {{ .PublishDate.Format $ISO8601 | jsonify }},
+      {{- end }}
+      {{- if not .Lastmod.IsZero -}}
+      "dateModified": {{ .Lastmod.Format $ISO8601 | jsonify }},
+      {{- end }}
+      "publisher": {
+        "@id": {{ .Site.BaseURL | printf "%s#author" | jsonify }}
+      },
+      "keywords": [
+      {{- if isset .Params "tags" -}}
+      {{- range $idx, $tag := .Params.tags -}}
+        {{- if $idx -}},{{- end }}
+        {{ $tag | jsonify -}} {{/* Usare $tag direttamente, non cercare la pagina per il titolo */}}
+      {{- end -}}
+      {{- end }}
+      ],
+      "articleSection": [
+      {{- if isset .Params "categories" -}}
+      {{- range $idx, $cat := .Params.categories -}}
+        {{- if $idx -}},{{- end }}
+        {{ $cat | jsonify -}} {{/* Usare $cat direttamente */}}
+      {{- end -}}
+      {{- end }}
+      ],
+      "inLanguage": {{ .Site.LanguageCode | jsonify }},
+      "author": {
+        "@type": "Person",
+        "name": {{ .Params.author | default .Site.Params.author | jsonify }} {{/* Fallback all'autore del sito */}}
+      },
+      "potentialAction": [
+        {
+          "@type": "CommentAction",
+          "name": "Comment",
+          "target": [
+            {{ .Permalink | printf "%s#comments" | jsonify }}
+          ]
+        }
+      ]
+    }{{ end }}
+  ]
+}
+</script>
