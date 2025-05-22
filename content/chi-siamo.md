@@ -1,8 +1,8 @@
 ---
 title: "Chi Siamo"
 date: 2023-10-28T09:00:00+02:00
-draft: false
 description: "Conosci la storia, i valori e le persone dietro l'Associazione La Ghironda."
+DisableShare: true
 ---
 
 ## La Nostra Storia

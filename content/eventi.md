@@ -1,8 +1,8 @@
 ---
 title: "Prossimi Eventi"
 date: 2023-10-28T11:00:00+02:00
-draft: false
 description: "Calendario dei prossimi eventi e incontri organizzati da La Ghironda."
+DisableShare: true
 ---
 
 Rimani aggiornato su tutte le nostre iniziative! Qui sotto trovi il calendario con i prossimi appuntamenti.

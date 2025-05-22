@@ -1,8 +1,7 @@
 ---
-title: "Benvenuti a La Ghironda!" # Questo titolo potrebbe essere usato dal tema per la <title> tag della pagina
-# Non sono necessari altri parametri specifici per Soho qui, di solito.
-# Il layout sarà determinato da layouts/index.html
+title: "Benvenuti a La Ghironda!"
 description: ""
+DisableShare: true
 ---
 
 ## La Nostra Missione

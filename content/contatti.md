@@ -1,8 +1,8 @@
 ---
 title: "Contatti"
 date: 2023-10-28T14:00:00+02:00
-draft: false
 description: "Mettiti in contatto con l'Associazione La Ghironda: email, telefono, e social media."
+DisableShare: true
 ---
 
 Siamo felici di rispondere alle tue domande, ricevere suggerimenti o discutere di come puoi partecipare alle nostre attività.

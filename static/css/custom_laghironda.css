@@ -170,7 +170,6 @@ main.content.container {
     /* Potresti voler applicare questo padding-left solo quando l'hamburger è visibile
        (cioè, quando la sidebar è chiusa), ma per semplicità, averlo sempre
        non è male se l'hamburger è sempre in quella posizione quando la sidebar è chiusa. */
-    
     /* Assicurati che la transizione per margin-left (se la usi per quando la sidebar si apre)
        non interferisca o sia coordinata. */
     transition: margin-left 0.4s ease-in-out, padding-left 0.4s ease-in-out; /* Esempio */
@@ -180,4 +179,31 @@ main.content.container {
    (richiede che la classe 'sidebar-is-open' non sia presente sul body) */
 body:not(.sidebar-is-open) main.content.container {
     padding-left: 100px; /* Spazio per l'hamburger */
+}
+
+/* Footer - SOVRASCRIVI GLI STILI DEL TEMA */
+footer { /* Targettizza direttamente il tag <footer> */
+    clear: both; /* Assicura che vada sotto il contenuto flottante (se c'è) */
+    box-sizing: border-box; /* MANTIENI O AGGIUNGI */
+     width: 60%;
+    /* SOVRASCRIVI I MARGINI DEL TEMA E LA LARGHEZZA */
+    /*max-width: var(--main-content-max-width); /* Stessa max-width del tuo main.content.container */
+    max-width: var(--main-content-max-width);
+    margin-top: 2rem;    /* Aggiungi un po' di margine sopra il footer, se vuoi */
+    margin-bottom: 2rem; /* Margine sotto */
+    margin-left: auto !important;  /* FORZA la centratura */
+    margin-right: auto !important; /* FORZA la centratura */
+
+    /* MANTIENI GLI STILI DEL TEMA CHE VANNO BENE */
+    font-size: .7rem;
+    text-align: center; /* Centra il testo INTERNO */
+    /* height: 40px; */ /* Rimuovi o commenta l'altezza fissa, lascia che il contenuto la determini */
+    padding: 1rem 1rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
+                           Invece di padding: 1rem 0; del tema, aggiungiamo padding laterale qui. */
+    border-top: 1px solid #e0e0e0; /* La linea separatrice */
+}
+
+
+footer div p {
+    margin: 0px;
 }

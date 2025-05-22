@@ -1,8 +1,8 @@
 ---
 title: "Sostienici"
-date: 2023-10-28T12:00:00+02:00 # La data è utile per l'ordinamento o se Soho la mostra
-draft: false
+date: 2023-10-28T12:00:00+02:00
 description: "Aiuta La Ghironda a continuare le sue attività: acquista una maglietta o fai una donazione."
+DisableShare: true
 ---
 
 Il tuo supporto è fondamentale per permetterci di portare avanti i nostri progetti e aiutare la comunità. Ci sono diversi modi in cui puoi contribuire:

@@ -1,11 +1,8 @@
 ---
 title: "Le Nostre Attività"
 date: 2023-10-28T10:00:00+02:00
-draft: false
 description: "Scopri i progetti e le attività che portiamo avanti come Associazione La Ghironda."
-# Se Soho supporta un Table of Contents (ToC) e vuoi attivarlo per questa pagina,
-# potrebbe esserci un parametro come `toc: true` o simile nel front matter.
-# Controlla la documentazione di Soho.
+DisableShare: true
 ---
 
 L'associazione La Ghironda si impegna quotidianamente in una varietà di progetti e iniziative volti a **[scopo generale delle attività]**. Ecco alcune delle nostre principali aree di intervento:
