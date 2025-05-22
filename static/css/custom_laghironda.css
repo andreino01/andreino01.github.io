@@ -198,7 +198,7 @@ footer { /* Targettizza direttamente il tag <footer> */
     font-size: .7rem;
     text-align: center; /* Centra il testo INTERNO */
     /* height: 40px; */ /* Rimuovi o commenta l'altezza fissa, lascia che il contenuto la determini */
-    padding: 1rem 1rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
+    padding: 0.5rem 1rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
                            Invece di padding: 1rem 0; del tema, aggiungiamo padding laterale qui. */
     border-top: 1px solid #e0e0e0; /* La linea separatrice */
 }
