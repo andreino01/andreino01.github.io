@@ -44,7 +44,7 @@ aside.sidebar.closed {
 /* Logo, Titolo, Descrizione nella Sidebar */
 aside.sidebar .sidebar-about {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 aside.sidebar .author-image img {
     width: 150px; height: 150px;
@@ -59,7 +59,7 @@ aside.sidebar .author-image img.img-circle {
 aside.sidebar .sidebar-about h1.site-title-sidebar { /* Usiamo la classe aggiunta */
     color: var(--colore-oro-ghironda) !important;
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     font-size: 1.8em;
     /* Rimuoviamo qualsiasi effetto di link/hover qui se non è un link */
     text-decoration: none; /* Se per caso lo ereditasse */
@@ -72,7 +72,7 @@ aside.sidebar .sidebar-about h1.site-title-sidebar:hover {
 }
 
 aside.sidebar .sidebar-about .p_description {
-    color: #ccc; font-size: 0.9em; margin-bottom: 20px;
+    color: #fff2b3; font-size: 0.9em; margin-bottom: 20px;
 }
 
 /* Menu nella Sidebar */
@@ -121,6 +121,7 @@ aside.sidebar .social-icons a:hover { color: #fff2b3 !important; }
     /* Non serve display:none/block qui, lo fa JS con la classe .closed sulla sidebar genitore,
        ma se la sidebar è visibile, questo pulsante deve essere visibile. */
 }
+
 .sidebar-toggle-button span {
     background-color: var(--colore-oro-ghironda); /* Trattini/X d'oro */
 }
@@ -152,10 +153,31 @@ aside.sidebar .social-icons a:hover { color: #fff2b3 !important; }
 .page-overlay.active { display: block; }
 
 /* Sposta il contenuto principale quando la sidebar è aperta (opzionale) */
-main.content.container { /* Se .content.container è il tuo wrapper principale per il contenuto */
-    transition: margin-left 0.4s ease-in-out;
-    /* Inizialmente nessun margine, si adatta alla chiusura della sidebar */
-}
+
 body.sidebar-is-open main.content.container { /* Aggiungi .sidebar-is-open al body con JS */
     margin-left: 320px; /* Spingi il contenuto della larghezza della sidebar */
+}
+
+main.content.container {
+    /* Aggiungi padding in alto e a sinistra per fare spazio all'hamburger
+       quando la sidebar è chiusa.
+       La quantità di padding dipende dalla dimensione e posizione dell'hamburger.
+       Il tuo hamburger è circa 45px + 10px padding = 65px.
+       E position top: 20px, left: 20px.
+       Quindi un padding di circa 70-80px dovrebbe bastare. */
+    padding-top: 100px; /* Padding esistente o nuovo */
+    /*padding-left: 70px;*/  /* Spazio per l'hamburger a sinistra */
+    /* Potresti voler applicare questo padding-left solo quando l'hamburger è visibile
+       (cioè, quando la sidebar è chiusa), ma per semplicità, averlo sempre
+       non è male se l'hamburger è sempre in quella posizione quando la sidebar è chiusa. */
+    
+    /* Assicurati che la transizione per margin-left (se la usi per quando la sidebar si apre)
+       non interferisca o sia coordinata. */
+    transition: margin-left 0.4s ease-in-out, padding-left 0.4s ease-in-out; /* Esempio */
+}
+
+/* Se vuoi che il padding-left si applichi SOLO quando la sidebar è chiusa
+   (richiede che la classe 'sidebar-is-open' non sia presente sul body) */
+body:not(.sidebar-is-open) main.content.container {
+    padding-left: 100px; /* Spazio per l'hamburger */
 }
