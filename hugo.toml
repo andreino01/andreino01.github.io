@@ -29,15 +29,15 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
 
   # Icone Social (verifica come Soho le gestisce e se include Font Awesome)
   [[params.socialIcons]]
-    icon = "fab fa-facebook-f" # Richiede Font Awesome
-    title = "Facebook"
-    url = "https://facebook.com/" # SOSTITUISCI
-
-  [[params.socialIcons]]
     icon = "fab fa-instagram" # Richiede Font Awesome
     title = "Instagram"
     url = "https://www.instagram.com/_laghironda" # SOSTITUISCI
 
+  [[params.socialIcons]]
+    icon = "fas fa-envelope"
+    title = "Email"
+    url = "mailto:laghironda.milano@gmail.com"
+    
 # MENU PRINCIPALE
 [menu]
 #  [[menu.main]]

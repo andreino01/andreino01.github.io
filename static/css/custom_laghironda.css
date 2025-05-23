@@ -42,7 +42,7 @@ aside.sidebar {
     padding: 0px;
     flex-grow: 1; /* Fa sì che questo elemento occupi lo spazio verticale disponibile */
     padding-top: 0px; /* O un piccolo padding se il primo elemento interno non ha margine superiore */
-    padding-bottom: 20px; /* Questo è il "margine inferiore" interno garantito */
+    padding-bottom: 10px; /* Questo è il "margine inferiore" interno garantito */
     padding-left: 15px;   /* Padding laterale per il contenuto interno */
     padding-right: 15px;  /* Padding laterale per il contenuto interno */
     margin-top: 0px;
@@ -253,7 +253,7 @@ footer div p {
         flex-direction: column; /* I figli diretti (X e .sidebar-sticky-content) si dispongono in colonna */
         overflow-y: hidden; /* NESSUNO SCROLL sulla sidebar stessa */
         padding-top: 50px;  /* Spazio per il pulsante X (top:15px) e respiro */
-        padding-bottom: 0;  /* Il padding inferiore sarà dentro .sidebar-sticky-content */
+        padding-bottom: 0px;  /* Il padding inferiore sarà dentro .sidebar-sticky-content */
         box-sizing: border-box;
     }
 
@@ -293,6 +293,23 @@ footer div p {
         margin-left: 5vw;
         margin-right: 10vw;
         margin-bottom: 10vw;
+    }
+
+    .sidebar-sticky-content {
+        flex-grow: 1;
+        overflow-y: auto; /* Come da tua richiesta precedente per mobile */
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+    }
+
+    aside.sidebar .social-icons {
+        text-align: center;
+        margin-top: auto; /* Mantiene le icone in basso se c'è spazio */
+        padding-top: 5px; /* Spazio sopra le icone */
+        /* Non c'è padding-bottom qui, è gestito da .sidebar-sticky-content */
     }
 
     /* Footer su MOBILE */
