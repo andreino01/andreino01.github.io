@@ -16,14 +16,29 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!sidebarToggleButton) console.warn('Attenzione: Pulsante .sidebar-toggle-button non trovato.');
     if (!pageHamburgerButton) console.warn('Attenzione: Pulsante .page-hamburger-button non trovato.');
 
+    let hamburgerAppearTimeoutId = null;
+
     function setSidebarState(isClosed) {
         sidebar.classList.toggle('closed', isClosed);
         body.classList.toggle('sidebar-is-open', !isClosed); // Aggiungi/rimuovi classe al body
 
+        if (hamburgerAppearTimeoutId) {
+            clearTimeout(hamburgerAppearTimeoutId);
+            hamburgerAppearTimeoutId = null;
+        }
+
         if (isClosed) {
             // Sidebar CHIUSA -> Mostra hamburger sulla pagina, nascondi X nella sidebar
-            if (pageHamburgerButton) pageHamburgerButton.style.display = 'block';
             if (sidebarToggleButton) sidebarToggleButton.style.display = 'none';
+            if (pageHamburgerButton) {
+                pageHamburgerButton.style.display = 'none'; // Nascondi subito
+                hamburgerAppearTimeoutId = setTimeout(() => {
+                    // Mostra l'hamburger solo se la sidebar è ancora chiusa
+                    if (sidebar.classList.contains('closed')) {
+                        pageHamburgerButton.style.display = 'block';
+                    }
+                }, 400); // 400 millisecondi = 0.4 secondi
+            }
             // Assicurati che l'hamburger sulla pagina non sia in stato "X"
             if (pageHamburgerButton) pageHamburgerButton.classList.remove('active');
             if (pageHamburgerButton) pageHamburgerButton.setAttribute('aria-expanded', 'false');
@@ -44,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function toggleSidebar() {
-        const 현재상태_닫힘 = sidebar.classList.contains('closed'); // Leggi lo stato attuale
-        setSidebarState(!현재상태_닫힘); // Inverti lo stato
+        const isClosed = sidebar.classList.contains('closed'); // Leggi lo stato attuale
+        setSidebarState(!isClosed); // Inverti lo stato
     }
 
     if (sidebarToggleButton) {
