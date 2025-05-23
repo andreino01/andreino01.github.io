@@ -242,9 +242,9 @@ footer div p {
 
     /* Contenuto principale su MOBILE */
     main.content.container {
-        width: 80%; /* Occupa la larghezza disponibile */
-        margin-left: 70px; /* Nessun margine laterale fisso */
-        margin-right: 20px;
+        width: auto; /* Occupa la larghezza disponibile */
+        margin-left: 10px; /* Nessun margine laterale fisso */
+        margin-right: 30px;
         /* Il padding-top può rimanere se serve */
     }
 
@@ -252,8 +252,8 @@ footer div p {
     body:not(.sidebar-is-open) main.content.container {
         padding-top: 50px;
         width: auto;
-        margin-left: 50px; /* O un padding di default se preferisci */
-        margin-right: 20px;
+        margin-left: 10px; /* O un padding di default se preferisci */
+        margin-right: 30px;
         /* Spazio a sinistra per l'hamburger (es. 15px (pos hamburger) + 45px (width hamburger) + 5px (buffer) = 65px) */
         /*padding-left: 0px; /* left + width + buffer */
         /* Stessa distanza dal bordo destro per simmetria */
@@ -264,12 +264,12 @@ footer div p {
     body.sidebar-is-open main.content.container {
         padding-top: 50px;
         width: auto;
-        margin-left: 50px;
-        margin-right: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     /* Footer su MOBILE */
     footer {
-        width: 60%;
+        width: 50%;
     }
 }
