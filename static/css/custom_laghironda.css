@@ -1,9 +1,13 @@
 /* static/css/custom_ghironda.css */
 :root {
     --colore-oro-ghironda: #DAA520;
+    --colore-oro-ghironda-chiaro: #fff2b3;
     --colore-sidebar-bg: #002244;
     --colore-pagina-bg: #FFFFFF;
     --colore-testo-pagina: #333333;
+    --sidebar-width-desktop: 25vw;
+    --hamburger-space: 100px;
+    --content-padding-default: 20px;
 }
 
 body {
@@ -11,7 +15,7 @@ body {
     color: var(--colore-testo-pagina);
     /* Aggiunto per evitare che il contenuto principale si sposti bruscamente
        se si decidesse di usare margin-left per spingerlo */
-    transition: margin-left 0.4s ease-in-out;
+    /*transition: margin-left 0.4s ease-in-out;*/
 }
 
 /* --- Sidebar Styles --- */
@@ -19,10 +23,10 @@ aside.sidebar {
     position: fixed; /* Fondamentale per il posizionamento del pulsante di chiusura interno */
     top: 0;
     left: 0;
-    width: 320px;
+    width: var(--sidebar-width-desktop);
     height: 100%;
     background-color: var(--colore-sidebar-bg);
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, width 0.4s ease-in-out;
     z-index: 1000;
     overflow-y: hidden;
     display: flex;
@@ -52,7 +56,7 @@ aside.sidebar .author-image img {
 }
 
 aside.sidebar .author-image img.img-circle {
-    border: none !important; /* Rimuove qualsiasi bordo */
+    border: none !important;
 }
 
 /* Stile specifico per l'h1 del titolo del sito nella sidebar */
@@ -72,7 +76,7 @@ aside.sidebar .sidebar-about h1.site-title-sidebar:hover {
 }
 
 aside.sidebar .sidebar-about .p_description {
-    color: #fff2b3; font-size: 0.9em; margin-bottom: 20px;
+    color: var(--colore-oro-ghironda-chiaro); font-size: 0.9em; margin-bottom: 20px;
 }
 
 /* Menu nella Sidebar */
@@ -93,7 +97,7 @@ aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pag
 /* Icone Social */
 aside.sidebar .social-icons { text-align: center; margin-top: 30px; padding-bottom: 20px; }
 aside.sidebar .social-icons a { color: var(--colore-oro-ghironda) !important; margin: 0 8px; font-size: 1.2em; }
-aside.sidebar .social-icons a:hover { color: #fff2b3 !important; }
+aside.sidebar .social-icons a:hover { color: var(--colore-oro-ghironda-chiaro) !important; }
 
 /* --- Stili per il Pulsante Toggle Master (ora ci sono due "istanze" con classi diverse) --- */
 .master-toggle { /* Stili comuni a entrambi i pulsanti */
@@ -159,6 +163,7 @@ body.sidebar-is-open main.content.container { /* Aggiungi .sidebar-is-open al bo
 }
 
 main.content.container {
+    box-sizing: border-box;
     /* Aggiungi padding in alto e a sinistra per fare spazio all'hamburger
        quando la sidebar è chiusa.
        La quantità di padding dipende dalla dimensione e posizione dell'hamburger.
@@ -166,39 +171,54 @@ main.content.container {
        E position top: 20px, left: 20px.
        Quindi un padding di circa 70-80px dovrebbe bastare. */
     padding-top: 100px; /* Padding esistente o nuovo */
+    width: 50vw; /* Occupa il 50% centrale dello schermo */
+    margin-left: var(--sidebar-width-desktop); /* Spostato del 25% da sinistra */
+    margin-right: var(--sidebar-width-desktop);
     /*padding-left: 70px;*/  /* Spazio per l'hamburger a sinistra */
     /* Potresti voler applicare questo padding-left solo quando l'hamburger è visibile
        (cioè, quando la sidebar è chiusa), ma per semplicità, averlo sempre
        non è male se l'hamburger è sempre in quella posizione quando la sidebar è chiusa. */
     /* Assicurati che la transizione per margin-left (se la usi per quando la sidebar si apre)
        non interferisca o sia coordinata. */
-    transition: margin-left 0.4s ease-in-out, padding-left 0.4s ease-in-out; /* Esempio */
+    /*transition: margin-left 0.4s ease-in-out, padding-left 0.4s ease-in-out; /* Esempio */
 }
 
 /* Se vuoi che il padding-left si applichi SOLO quando la sidebar è chiusa
    (richiede che la classe 'sidebar-is-open' non sia presente sul body) */
 body:not(.sidebar-is-open) main.content.container {
-    padding-left: 100px; /* Spazio per l'hamburger */
+    padding-left: var(--hamburger-space); /* Spazio per l'hamburger */
+}
+
+body.sidebar-is-open main.content.container {
+    padding-top: 100px; /* Padding esistente o nuovo */
+    width: 50vw; /* Occupa il 50% centrale dello schermo */
+    margin-left: var(--sidebar-width-desktop); /* Spostato del 25% da sinistra */
+    margin-right: var(--sidebar-width-desktop);
+    padding-left: var(--hamburger-space);
+    /* Su DESKTOP, la sidebar occupa 25vw. Il contenuto inizia già a 25vw (dal suo margin-left).
+       Quindi non serve ulteriore padding per l'hamburger.
+       Metti un padding di default se vuoi. */
+    /*padding-left: var(--sidebar-width-desktop); /* o 0px se non vuoi padding quando sidebar è aperta */
 }
 
 /* Footer - SOVRASCRIVI GLI STILI DEL TEMA */
 footer { /* Targettizza direttamente il tag <footer> */
     clear: both; /* Assicura che vada sotto il contenuto flottante (se c'è) */
     box-sizing: border-box; /* MANTIENI O AGGIUNGI */
-     width: 60%;
+    width: 60%;
     /* SOVRASCRIVI I MARGINI DEL TEMA E LA LARGHEZZA */
     /*max-width: var(--main-content-max-width); /* Stessa max-width del tuo main.content.container */
-    max-width: var(--main-content-max-width);
+    
     margin-top: 2rem;    /* Aggiungi un po' di margine sopra il footer, se vuoi */
     margin-bottom: 2rem; /* Margine sotto */
-    margin-left: auto !important;  /* FORZA la centratura */
-    margin-right: auto !important; /* FORZA la centratura */
+    margin-left: 25vw !important;  /* FORZA la centratura */
+    /*margin-right: auto !important; /* FORZA la centratura */
 
     /* MANTIENI GLI STILI DEL TEMA CHE VANNO BENE */
     font-size: .7rem;
     text-align: center; /* Centra il testo INTERNO */
     /* height: 40px; */ /* Rimuovi o commenta l'altezza fissa, lascia che il contenuto la determini */
-    padding: 0.5rem 1rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
+    padding: 0.5rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
                            Invece di padding: 1rem 0; del tema, aggiungiamo padding laterale qui. */
     border-top: 1px solid #e0e0e0; /* La linea separatrice */
 }
@@ -206,4 +226,50 @@ footer { /* Targettizza direttamente il tag <footer> */
 
 footer div p {
     margin: 0px;
+}
+
+@media (max-width: 768px) {
+    aside.sidebar {
+        width: 100%; /* Sidebar copre tutto lo schermo quando aperta */
+        /* Non serve cambiare transform, è già gestito */
+    }
+
+    /* Pulsante hamburger su mobile - potresti volerlo più vicino al bordo */
+    .page-hamburger-button {
+        left: 15px;
+        top: 15px;
+    }
+
+    /* Contenuto principale su MOBILE */
+    main.content.container {
+        width: 80%; /* Occupa la larghezza disponibile */
+        margin-left: 70px; /* Nessun margine laterale fisso */
+        margin-right: 20px;
+        /* Il padding-top può rimanere se serve */
+    }
+
+    /* Quando la sidebar è CHIUSA su MOBILE */
+    body:not(.sidebar-is-open) main.content.container {
+        padding-top: 50px;
+        width: auto;
+        margin-left: 50px; /* O un padding di default se preferisci */
+        margin-right: 20px;
+        /* Spazio a sinistra per l'hamburger (es. 15px (pos hamburger) + 45px (width hamburger) + 5px (buffer) = 65px) */
+        /*padding-left: 0px; /* left + width + buffer */
+        /* Stessa distanza dal bordo destro per simmetria */
+        /*padding-right: 0px; /* O lo stesso valore del left dell'hamburger se vuoi simmetria totale del padding rispetto ai bordi */
+    }
+
+    /* Quando la sidebar è APERTA su MOBILE */
+    body.sidebar-is-open main.content.container {
+        padding-top: 50px;
+        width: auto;
+        margin-left: 50px;
+        margin-right: 20px;
+    }
+
+    /* Footer su MOBILE */
+    footer {
+        width: 60%;
+    }
 }
