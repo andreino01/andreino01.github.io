@@ -86,7 +86,9 @@ aside.sidebar .sidebar-about h1.site-title-sidebar:hover {
 }
 
 aside.sidebar .sidebar-about .p_description {
-    color: var(--colore-oro-ghironda); font-size: 0.9em; margin-bottom: 20px;
+    color: var(--colore-oro-ghironda); 
+    font-size: 0.9em; 
+    margin-bottom: 20px;
 }
 
 /* Menu nella Sidebar */
@@ -107,7 +109,7 @@ aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pag
 /* Icone Social */
 aside.sidebar .social-icons { 
     text-align: center; 
-    margin-top: 30px; 
+    margin-top: 20px; 
     padding-bottom: 20px; }
 aside.sidebar .social-icons a { 
     color: var(--colore-oro-ghironda) !important; 
@@ -267,49 +269,42 @@ footer div p {
     main.content.container {
         width: auto; /* Occupa la larghezza disponibile */
         margin-top: 0;
-        margin-left: 5vw;
-        margin-right: 10vw;
-        margin-bottom: 10vw;
-        /* Il padding-top può rimanere se serve */
+        margin-left: 0;
+        margin-right: 15vw;
+        margin-bottom: 0;
     }
 
     /* Quando la sidebar è CHIUSA su MOBILE */
     body:not(.sidebar-is-open) main.content.container {
         width: auto;
         margin-top: 0;
-        margin-left: 5vw; /* O un padding di default se preferisci */
-        margin-right: 10vw;
-        margin-bottom: 10vw;
-        /* Spazio a sinistra per l'hamburger (es. 15px (pos hamburger) + 45px (width hamburger) + 5px (buffer) = 65px) */
-        /*padding-left: 0px; /* left + width + buffer */
-        /* Stessa distanza dal bordo destro per simmetria */
-        /*padding-right: 0px; /* O lo stesso valore del left dell'hamburger se vuoi simmetria totale del padding rispetto ai bordi */
+        margin-left: 0;
+        margin-right: 15vw;
+        margin-bottom: 0;
     }
 
     /* Quando la sidebar è APERTA su MOBILE */
     body.sidebar-is-open main.content.container {
         width: auto;
         margin-top: 0;
-        margin-left: 5vw;
-        margin-right: 10vw;
-        margin-bottom: 10vw;
+        margin-left: 0;
+        margin-right: 15vw;
+        margin-bottom: 0;
     }
 
     .sidebar-sticky-content {
         flex-grow: 1;
-        overflow-y: auto; /* Come da tua richiesta precedente per mobile */
+        overflow-y: hidden;
         display: flex;
         flex-direction: column;
         padding-left: 15px;
         padding-right: 15px;
-        padding-bottom: 0px;
     }
 
     aside.sidebar .social-icons {
         text-align: center;
-        margin-top: auto; /* Mantiene le icone in basso se c'è spazio */
-        padding-top: 5px; /* Spazio sopra le icone */
-        /* Non c'è padding-bottom qui, è gestito da .sidebar-sticky-content */
+        margin-top: 5px;
+        margin-bottom: auto;
     }
 
     /* Footer su MOBILE */
