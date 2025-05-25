@@ -1,20 +1,30 @@
 backend:
   name: github
-  repo: andreino01/andreino01.github.io
-  branch: main
-  auth_scope: repo
-  client_id: Ov23liMpW4ognFEuKbnz
-  
+  repo: andreino01/andreino01.github.io # Corretto se il repo è questo
+  branch: main # Assicurati che il branch principale sia 'main' e non 'master'
+  site_domain: andreino01.github.io # Aggiungi questo se usi un custom domain in futuro, per ora non strettamente necessario ma buona pratica
+  auth_scope: repo # 'repo' è corretto per repository privati e pubblici.
+  # base_url: https://andreino01.github.io # Non necessario se non usi un server di autenticazione esterno come Netlify Identity con Git Gateway.
+  # auth_endpoint: auth # Solo se usi un server di autenticazione custom.
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+# publish_mode: editorial_workflow # Opzionale, se vuoi la moderazione dei contenuti
+
+media_folder: "static/uploads" # Dove Decap CMS salva le immagini NEL TUO REPOSITORY
+public_folder: "/uploads"      # Come accedere alle immagini DAL SITO PUBBLICO (es. tuosito.com/uploads/immagine.jpg)
 
 collections:
-  - name: "pages"
-    label: "Pages"
-    folder: "content"
+  - name: "pages" # Questo è un ID interno
+    label: "Pagine" # Questo è ciò che vedi nell'interfaccia
+    folder: "content" # IMPORTANTISSIMO: dove sono i file Markdown delle tue pagine?
+                            # Se sono direttamente in 'content', allora metti "content"
+                            # Se sono in 'content/posts' per i blog post, crea una collection apposita
+                            # Spesso le pagine singole (about, contatti) sono in 'content/pages' o solo 'content'
     create: true
-    slug: "{{slug}}"
+    slug: "{{slug}}" # Va bene, usa il nome del file come slug
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      # Aggiungi altri campi del frontmatter dei tuoi file Markdown
+      # Esempio:
+      - { label: "DisableShare", name: "DisableShare", widget: "boolean", default: true }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
