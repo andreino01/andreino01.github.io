@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Content Development Tool</title>
+    <!-- Additional head content (stylesheets, scripts, etc.) can be added here -->
+</head>
+<body>
+    <h1>Welcome to the Content Development Tool</h1>
+    <form id="configForm">
+        <label for="org">Organization:</label>
+        <input type="text" id="org" required>
+        <label for="repo">Repository:</label>
+        <input type="text" id="repo" required>
+        <button type="submit">Proceed to Content Editor</button>
+    </form>
+
+    <script>
+        document.getElementById("configForm").onsubmit = function (e) {
+            e.preventDefault();
+            const org = document.getElementById("org").value;
+            const repo = document.getElementById("repo").value;
+            window.location.href = `admin/index.html?org=${org}&repo=${repo}`;
+        };
+    </script>
+</body>
+</html>
