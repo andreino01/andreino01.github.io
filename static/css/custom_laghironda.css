@@ -330,7 +330,7 @@ footer div p {
     aside.sidebar .sidebar-nav li a {
     color: var(--colore-oro-ghironda) !important;
     display: block; 
-    margin: 20px 20px;
+    margin: 10px 20px;
     text-decoration: none;
     /* La transizione ora è solo per il colore del testo */
     transition: color 0.2s ease; 
@@ -344,8 +344,8 @@ footer div p {
 
     aside.sidebar .social-icons {
         text-align: center;
-        margin-top: 10px;
-        margin-bottom: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     /* Footer su MOBILE */
