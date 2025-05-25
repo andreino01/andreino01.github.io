@@ -3,19 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.6.0/dist/decap-cms.js"></script>
   </head>
   <body>
-    <div id="nc-root"></div>
-
-    <script>
-      // Se il CMS non trova il contenitore, questo dice di aspettare il tuo segnale
-      window.CMS_MANUAL_INIT = true;
-
-      // Aspetta che tutto il DOM sia caricato prima di avviare il CMS
-      window.addEventListener('DOMContentLoaded', function () {
-        CMS.init();
-      });
-    </script>
+    <!-- Decap CMS si aggancerà automaticamente a questo div se l'inizializzazione manuale non è impostata -->
   </body>
 </html>
