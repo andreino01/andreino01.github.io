@@ -15,7 +15,7 @@ public_folder: "/uploads"      # Come accedere alle immagini DAL SITO PUBBLICO (
 collections:
   - name: "pages" # Questo è un ID interno
     label: "Pagine" # Questo è ciò che vedi nell'interfaccia
-    folder: "content" # IMPORTANTISSIMO: dove sono i file Markdown delle tue pagine?
+    folder: "content/posts" # IMPORTANTISSIMO: dove sono i file Markdown delle tue pagine?
                             # Se sono direttamente in 'content', allora metti "content"
                             # Se sono in 'content/posts' per i blog post, crea una collection apposita
                             # Spesso le pagine singole (about, contatti) sono in 'content/pages' o solo 'content'
