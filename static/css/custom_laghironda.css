@@ -319,13 +319,9 @@ footer div p {
         outline: none;
         box-shadow: none;
         background: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    :focus {
-        box-shadow: none;
-        background: none;
-        outline: none;
-    }
 
     /* Pulsante hamburger su mobile - potresti volerlo più vicino al bordo */
     .page-hamburger-button {
