@@ -1,11 +1,36 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Content Manager</title>
-    <script src="https://cdn.jsdelivr.net/npm/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </head>
-  <body>
-    <!-- Decap CMS si aggancerà automaticamente a questo div se l'inizializzazione manuale non è impostata -->
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <!-- Utilizza una versione più recente di Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.1.0/dist/decap-cms.js"></script>
+  <!-- O ancora meglio, la versione specifica più recente che trovi sulla loro documentazione, es:
+  <script src="https://unpkg.com/decap-cms@3.1.10/dist/decap-cms.js"></script>
+  Controlla https://decapcms.org/docs/intro/#add-to-your-site per la versione raccomandata -->
+</head>
+<body>
+  <!-- Elemento a cui Decap CMS si aggancerà -->
+  <div id="nc-root"></div>
+
+  <!-- Inizializzazione di Decap CMS -->
+  <script>
+    // Se il CMS non trova il contenitore #nc-root, questo aiuta a posticipare
+    // l'inizializzazione fino a quando il DOM non è completamente caricato.
+    // window.CMS_MANUAL_INIT = true; // Non strettamente necessario se lo script è alla fine del body e il div è prima
+
+    // Carica la configurazione dal file config.yml nella stessa cartella (admin)
+    // e inizializza il CMS agganciandosi a #nc-root.
+    // Questa forma di init è più comune quando config.yml è separato.
+    CMS.init();
+
+    // Alternativa più robusta se hai problemi con il caricamento del DOM
+    // (da usare con window.CMS_MANUAL_INIT = true; decommentato sopra)
+    /*
+    window.CMS_MANUAL_INIT = true;
+    window.addEventListener('DOMContentLoaded', () => {
+      CMS.init({ config: { /* puoi anche mettere la config qui direttamente invece che in config.yml */
+  </script>
+</body>
 </html>
