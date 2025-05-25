@@ -9,13 +9,13 @@ backend:
 
 # publish_mode: editorial_workflow # Opzionale, se vuoi la moderazione dei contenuti
 
-media_folder: "static/uploads" # Dove Decap CMS salva le immagini NEL TUO REPOSITORY
-public_folder: "/uploads"      # Come accedere alle immagini DAL SITO PUBBLICO (es. tuosito.com/uploads/immagine.jpg)
+media_folder: "static/images" # Dove Decap CMS salva le immagini NEL TUO REPOSITORY
+public_folder: "/images"      # Come accedere alle immagini DAL SITO PUBBLICO (es. tuosito.com/uploads/immagine.jpg)
 
 collections:
   - name: "pages" # Questo è un ID interno
     label: "Pagine" # Questo è ciò che vedi nell'interfaccia
-    folder: "content/posts" # IMPORTANTISSIMO: dove sono i file Markdown delle tue pagine?
+    folder: "content" # IMPORTANTISSIMO: dove sono i file Markdown delle tue pagine?
                             # Se sono direttamente in 'content', allora metti "content"
                             # Se sono in 'content/posts' per i blog post, crea una collection apposita
                             # Spesso le pagine singole (about, contatti) sono in 'content/pages' o solo 'content'
@@ -25,7 +25,5 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
-      # Aggiungi altri campi del frontmatter dei tuoi file Markdown
-      # Esempio:
       - { label: "DisableShare", name: "DisableShare", widget: "boolean", default: true }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }

@@ -1,49 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Content Editor</title>
-    <!-- Additional head content (stylesheets, scripts, etc.) can be added here -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager - DOMContentLoaded Init</title>
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </head>
 <body>
-    <!-- Include the Decap CMS script -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <div id="nc-root"></div>
 
-    <script>
-        // JavaScript logic to extract URL parameters and dynamically update CMS configuration
-        const urlParams = new URLSearchParams(window.location.search);
-        const org = urlParams.get('org');
-        const repo = urlParams.get('repo');
+  <script>
+    window.CMS_MANUAL_INIT = true;
+    console.log("CMS_MANUAL_INIT set.");
 
-        const config = {
-            backend: {
-                name: 'github',
-                repo: `${org}/${repo}`,
-                branch: 'main',
-            },
-            media_folder: 'static/images',
-            public_folder: '/images',
-            collections: [
-                // Example collection for blog posts
-                {
-                    name: 'blog',
-                    label: 'Blog',
-                    folder: 'content/posts',
-                    create: true,
-                    fields: [
-                        { name: 'title', label: 'Title', widget: 'string' },
-                        { name: 'date', label: 'Date', widget: 'datetime' },
-                        { name: 'author', label: 'Author', widget: 'string' },
-                        { name: 'body', label: 'Body', widget: 'markdown' },
-                        { name: "DisableShare", label: "DisableShare", widget: "boolean"},
-                        { name: "draft", label: "Draft", widget: "boolean", default: false }
-                    ],
-                },
-                // Add more collections for different content types as needed
-            ],
-        };
-
-        // Initialize Decap CMS with the dynamic configuration
-        CMS.init({ config });
-    </script>
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log("DOMContentLoaded event fired.");
+      if (window.CMS) {
+        console.log("CMS object found. Calling CMS.init(). DOMContentLoaded Init.");
+        window.CMS.init(); // Puoi passare config qui se config.yml non viene trovato: CMS.init({config: { backend: {...} }})
+      } else {
+        console.error("CRITICAL ERROR (DOMContentLoaded Init): CMS object not found.");
+      }
+    });
+  </script>
 </body>
 </html>
