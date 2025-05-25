@@ -2,6 +2,7 @@ backend:
   name: github
   repo: andreino01/andreino01.github.io # Corretto se il repo è questo
   branch: main # Assicurati che il branch principale sia 'main' e non 'master'
+  client_id: Ov23liMpW4ognFEuKbnz
   site_domain: andreino01.github.io # Aggiungi questo se usi un custom domain in futuro, per ora non strettamente necessario ma buona pratica
   auth_scope: repo # 'repo' è corretto per repository privati e pubblici.
   # base_url: https://andreino01.github.io # Non necessario se non usi un server di autenticazione esterno come Netlify Identity con Git Gateway.
