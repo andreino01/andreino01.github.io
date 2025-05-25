@@ -273,30 +273,6 @@ footer div p {
 }
 
 @media (max-width: 768px) {
-    aside.sidebar {
-        width: 100%; 
-        height: 100%; /* Sidebar copre tutto lo schermo quando aperta */
-        display: flex;
-        flex-direction: column; /* I figli diretti (X e .sidebar-sticky-content) si dispongono in colonna */
-        overflow-y: hidden; /* NESSUNO SCROLL sulla sidebar stessa */
-        padding-top: 50px;  /* Spazio per il pulsante X (top:15px) e respiro */
-        padding-bottom: 0px;  /* Il padding inferiore sarà dentro .sidebar-sticky-content */
-        box-sizing: border-box;
-    }
-
-    .sidebar a:focus,
-    .sidebar a:active {
-        outline: none;
-        box-shadow: none;
-        background: none;
-    }
-
-    /* Pulsante hamburger su mobile - potresti volerlo più vicino al bordo */
-    .page-hamburger-button {
-        left: 15px;
-        top: 15px;
-    }
-
     /* Contenuto principale su MOBILE */
     main.content.container {
         width: auto;
@@ -325,6 +301,36 @@ footer div p {
         padding-left: 0px;
         padding-right: 0px;
         padding-bottom:10px;
+    }
+
+    aside.sidebar {
+        width: 100%; 
+        height: 100%; /* Sidebar copre tutto lo schermo quando aperta */
+        display: flex;
+        flex-direction: column; /* I figli diretti (X e .sidebar-sticky-content) si dispongono in colonna */
+        overflow-y: hidden; /* NESSUNO SCROLL sulla sidebar stessa */
+        padding-top: 50px;  /* Spazio per il pulsante X (top:15px) e respiro */
+        padding-bottom: 0px;  /* Il padding inferiore sarà dentro .sidebar-sticky-content */
+        box-sizing: border-box;
+    }
+
+    .sidebar a:focus,
+    .sidebar a:active {
+        outline: none;
+        box-shadow: none;
+        background: none;
+    }
+
+    :focus {
+        box-shadow: none;
+        background: none;
+        outline: none;
+    }
+
+    /* Pulsante hamburger su mobile - potresti volerlo più vicino al bordo */
+    .page-hamburger-button {
+        left: 15px;
+        top: 15px;
     }
 
     .sidebar-sticky-content {
