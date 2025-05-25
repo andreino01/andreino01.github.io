@@ -189,10 +189,13 @@ main.content.container {
        Il tuo hamburger è circa 45px + 10px padding = 65px.
        E position top: 20px, left: 20px.
        Quindi un padding di circa 70-80px dovrebbe bastare. */
-    padding-top: 100px; /* Padding esistente o nuovo */
-    width: 50vw; /* Occupa il 50% centrale dello schermo */
+    width: 60%; /* Occupa il 50% centrale dello schermo */
     margin-left: var(--sidebar-width-desktop); /* Spostato del 25% da sinistra */
     margin-right: var(--sidebar-width-desktop);
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-bottom:30px;
     /*padding-left: 70px;*/  /* Spazio per l'hamburger a sinistra */
     /* Potresti voler applicare questo padding-left solo quando l'hamburger è visibile
        (cioè, quando la sidebar è chiusa), ma per semplicità, averlo sempre
@@ -205,15 +208,22 @@ main.content.container {
 /* Se vuoi che il padding-left si applichi SOLO quando la sidebar è chiusa
    (richiede che la classe 'sidebar-is-open' non sia presente sul body) */
 body:not(.sidebar-is-open) main.content.container {
-    padding-left: var(--hamburger-space); /* Spazio per l'hamburger */
+    width: 60%;
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-bottom:30px;
 }
 
 body.sidebar-is-open main.content.container {
-    padding-top: 100px; /* Padding esistente o nuovo */
-    width: 50vw; /* Occupa il 50% centrale dello schermo */
+    width: 60%; /* Occupa il 50% centrale dello schermo */
     margin-left: var(--sidebar-width-desktop); /* Spostato del 25% da sinistra */
     margin-right: var(--sidebar-width-desktop);
-    padding-left: var(--hamburger-space);
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 10px;
+    padding-bottom:30px;
+    /*padding-left: var(--hamburger-space);
     /* Su DESKTOP, la sidebar occupa 25vw. Il contenuto inizia già a 25vw (dal suo margin-left).
        Quindi non serve ulteriore padding per l'hamburger.
        Metti un padding di default se vuoi. */
@@ -237,6 +247,7 @@ footer { /* Targettizza direttamente il tag <footer> */
     font-size: .7rem;
     text-align: center; /* Centra il testo INTERNO */
     /* height: 40px; */ /* Rimuovi o commenta l'altezza fissa, lascia che il contenuto la determini */
+    
     padding: 0.5rem;  /* Padding verticale 1rem, padding orizzontale 1rem (per il testo interno)
                            Invece di padding: 1rem 0; del tema, aggiungiamo padding laterale qui. */
     border-top: 1px solid #e0e0e0; /* La linea separatrice */
@@ -267,29 +278,41 @@ footer div p {
 
     /* Contenuto principale su MOBILE */
     main.content.container {
-        width: auto; /* Occupa la larghezza disponibile */
+        width: auto;
         margin-top: 0;
-        margin-left: 0;
-        margin-right: 15vw;
+        margin-left: var(--hamburger-space);
+        margin-right: var(--hamburger-space);
         margin-bottom: 0;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 10px;
     }
 
     /* Quando la sidebar è CHIUSA su MOBILE */
     body:not(.sidebar-is-open) main.content.container {
         width: auto;
         margin-top: 0;
-        margin-left: 0;
-        margin-right: 15vw;
+        margin-left: var(--hamburger-space);
+        margin-right: var(--hamburger-space);
         margin-bottom: 0;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom: 10px;
     }
 
     /* Quando la sidebar è APERTA su MOBILE */
     body.sidebar-is-open main.content.container {
         width: auto;
         margin-top: 0;
-        margin-left: 0;
-        margin-right: 15vw;
+        margin-left: var(--hamburger-space);
+        margin-right: var(--hamburger-space);
         margin-bottom: 0;
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-bottom:10px;
     }
 
     .sidebar-sticky-content {
@@ -303,7 +326,7 @@ footer div p {
 
     aside.sidebar .social-icons {
         text-align: center;
-        margin-top: 5px;
+        margin-top: 10px;
         margin-bottom: auto;
     }
 
