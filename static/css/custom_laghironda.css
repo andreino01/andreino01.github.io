@@ -112,12 +112,13 @@ aside.sidebar .sidebar-nav li a {
     margin: 20px 20px; 
     text-decoration: none;
     /* La transizione ora è solo per il colore del testo */
-    transition: color 0.2s ease; 
+    
 }
 aside.sidebar .sidebar-nav li a:hover,
 aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pagina corrente */
     color: var(--colore-oro-ghironda-chiaro) !important; /* Testo diventa ORO PIÙ CHIARO */
-    background-color: transparent !important; /* NESSUN CAMBIO DI SFONDO (o il colore di sfondo della sidebar se preferisci, ma trasparente è meglio per "illuminare" solo il testo) */
+    transition: color 0.2s ease; 
+    background-color: transparent !important; /* NESSUN CAMBIO DI SFONDO*/
 }
 
 /* Icone Social */
@@ -131,6 +132,7 @@ aside.sidebar .social-icons a {
     font-size: 1.2em; }
 aside.sidebar .social-icons a:hover { 
     color: var(--colore-oro-ghironda-chiaro) !important;
+    transition: color 0.2s ease; 
 }
 
 /* --- Stili per il Pulsante Toggle Master (ora ci sono due "istanze" con classi diverse) --- */
@@ -341,14 +343,13 @@ footer div p {
     display: block; 
     margin: 10px 20px;
     text-decoration: none;
-    /* La transizione ora è solo per il colore del testo */
-    transition: color 0.2s ease; 
     }
     
     aside.sidebar .sidebar-nav li a:hover,
-    aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pagina corrente */
+    aside.sidebar .sidebar-nav li a:active { /* Soho usa .active sul <li> per la pagina corrente */
     color: var(--colore-oro-ghironda-chiaro) !important; /* Testo diventa ORO PIÙ CHIARO */
     background-color: transparent !important; /* NESSUN CAMBIO DI SFONDO (o il colore di sfondo della sidebar se preferisci, ma trasparente è meglio per "illuminare" solo il testo) */
+    transition: none !important;
     }
 
     aside.sidebar .social-icons {
@@ -357,6 +358,12 @@ footer div p {
         margin-bottom: 15px;
     }
 
+    aside.sidebar .social-icons a:hover,
+    aside.sidebar .social-icons a:active { 
+    color: var(--colore-oro-ghironda-chiaro) !important;
+    transition: none !important; 
+    }
+    
     /* Footer su MOBILE */
     footer {
         width: 50%;
