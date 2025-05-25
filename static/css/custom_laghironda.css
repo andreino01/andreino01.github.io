@@ -33,19 +33,21 @@ aside.sidebar {
     flex-direction: column;
     box-sizing: border-box;
     padding-top: 50px;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .sidebar-sticky-content {
-    padding: 0px;
     flex-grow: 1; /* Fa sì che questo elemento occupi lo spazio verticale disponibile */
-    padding-top: 0px; /* O un piccolo padding se il primo elemento interno non ha margine superiore */
-    padding-bottom: 10px; /* Questo è il "margine inferiore" interno garantito */
-    padding-left: 15px;   /* Padding laterale per il contenuto interno */
-    padding-right: 15px;  /* Padding laterale per il contenuto interno */
-    margin-top: 0px;
+    margin: 0px 20px;  /* Padding: verticale laterale (per il contenuto interno) */
+}
+
+.sidebar a:focus,
+.sidebar a:active {
+    outline: none;
+    box-shadow: none;
+    background: none;
 }
 
 aside.sidebar.closed {
@@ -60,9 +62,21 @@ aside.sidebar .sidebar-about {
     cursor: default; /* Cursore normale */
 }
 
-aside.sidebar .author-image img {
-    width: 150px; height: 150px;
+aside.sidebar .author-image {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: sticky;
+}
+
+aside.sidebar .author-image img {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: -45px;
+    left: 0px;
 }
 
 aside.sidebar .author-image img.img-circle {
@@ -72,7 +86,7 @@ aside.sidebar .author-image img.img-circle {
 /* Stile specifico per l'h1 del titolo del sito nella sidebar */
 aside.sidebar .sidebar-about h1.site-title-sidebar { /* Usiamo la classe aggiunta */
     color: var(--colore-oro-ghironda) !important;
-    margin-top: 0;
+    margin-top: 10px;
     margin-bottom: 0px;
     font-size: 1.8em;
     /* Rimuoviamo qualsiasi effetto di link/hover qui se non è un link */
@@ -95,7 +109,7 @@ aside.sidebar .sidebar-about .p_description {
 aside.sidebar .sidebar-nav li a {
     color: var(--colore-oro-ghironda) !important;
     display: block; 
-    padding: 10px 15px; 
+    margin: 20px 20px; 
     text-decoration: none;
     /* La transizione ora è solo per il colore del testo */
     transition: color 0.2s ease; 
@@ -109,8 +123,8 @@ aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pag
 /* Icone Social */
 aside.sidebar .social-icons { 
     text-align: center; 
-    margin-top: 20px; 
-    padding-bottom: 20px; }
+    margin: 25px 0px; 
+}
 aside.sidebar .social-icons a { 
     color: var(--colore-oro-ghironda) !important; 
     margin: 0 8px; 
@@ -279,10 +293,7 @@ footer div p {
     /* Contenuto principale su MOBILE */
     main.content.container {
         width: auto;
-        margin-top: 0;
-        margin-left: var(--hamburger-space);
-        margin-right: var(--hamburger-space);
-        margin-bottom: 0;
+        margin: 0px var(--hamburger-space);
         padding-top: 0px;
         padding-left: 0px;
         padding-right: 0px;
@@ -292,10 +303,7 @@ footer div p {
     /* Quando la sidebar è CHIUSA su MOBILE */
     body:not(.sidebar-is-open) main.content.container {
         width: auto;
-        margin-top: 0;
-        margin-left: var(--hamburger-space);
-        margin-right: var(--hamburger-space);
-        margin-bottom: 0;
+        margin: 0px var(--hamburger-space);
         padding-top: 0px;
         padding-left: 0px;
         padding-right: 0px;
@@ -305,10 +313,7 @@ footer div p {
     /* Quando la sidebar è APERTA su MOBILE */
     body.sidebar-is-open main.content.container {
         width: auto;
-        margin-top: 0;
-        margin-left: var(--hamburger-space);
-        margin-right: var(--hamburger-space);
-        margin-bottom: 0;
+        margin: 0px var(--hamburger-space);
         padding-top: 0px;
         padding-left: 0px;
         padding-right: 0px;
@@ -320,8 +325,21 @@ footer div p {
         overflow-y: hidden;
         display: flex;
         flex-direction: column;
-        padding-left: 15px;
-        padding-right: 15px;
+    }
+
+    aside.sidebar .sidebar-nav li a {
+    color: var(--colore-oro-ghironda) !important;
+    display: block; 
+    margin: 20px 20px;
+    text-decoration: none;
+    /* La transizione ora è solo per il colore del testo */
+    transition: color 0.2s ease; 
+    }
+    
+    aside.sidebar .sidebar-nav li a:hover,
+    aside.sidebar .sidebar-nav li.active a { /* Soho usa .active sul <li> per la pagina corrente */
+    color: var(--colore-oro-ghironda-chiaro) !important; /* Testo diventa ORO PIÙ CHIARO */
+    background-color: transparent !important; /* NESSUN CAMBIO DI SFONDO (o il colore di sfondo della sidebar se preferisci, ma trasparente è meglio per "illuminare" solo il testo) */
     }
 
     aside.sidebar .social-icons {
