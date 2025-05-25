@@ -284,6 +284,13 @@ footer div p {
         box-sizing: border-box;
     }
 
+    .sidebar a:focus,
+    .sidebar a:active {
+        outline: none;
+        box-shadow: none;
+        background: none;
+    }
+
     /* Pulsante hamburger su mobile - potresti volerlo più vicino al bordo */
     .page-hamburger-button {
         left: 15px;
