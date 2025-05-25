@@ -6,12 +6,16 @@
     <script src="https://unpkg.com/decap-cms@^3.6.3/dist/decap-cms.js"></script>
   </head>
   <body>
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
     <div id="nc-root"></div>
+
     <script>
-      CMS.init();
+      // Se il CMS non trova il contenitore, questo dice di aspettare il tuo segnale
+      window.CMS_MANUAL_INIT = true;
+
+      // Aspetta che tutto il DOM sia caricato prima di avviare il CMS
+      window.addEventListener('DOMContentLoaded', function () {
+        CMS.init();
+      });
     </script>
   </body>
 </html>
