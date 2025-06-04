@@ -75,7 +75,13 @@ summarylength = 20 # Lunghezza del riassunto (numero di parole) per le anteprime
     name = "Contatti"
     url = "/contatti/"
     weight = 50
-
+  
+  [[menu.main]]
+    identifier = "Compleanno Auri"
+    name = "Compleanno Auri"
+    url = "/compleanno-auri/"
+    weight = 50
+    
 # TASSOMOMIE (opzionale per ora se non hai un blog)
 [taxonomies]
   category = "categorie"
